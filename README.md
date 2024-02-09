@@ -1,3 +1,5 @@
+[<img src="https://i.ytimg.com/vi/z5p8sGzKS0Y/maxresdefault.jpg">](https://www.youtube.com/watch?v=z5p8sGzKS0Y "Crie sua API em NodeJS PURO! #express #expressjs")
+
 Já teve a curiosidade de saber como o Express funciona por baixo dos panos?
 
 ⭐ Vem comigo que hoje a gente vai criar o nosso próprio Express! Claro que vai ser uma versão simplificada, mas eu garanto que você já vai aprender muita coisa legal e não vai mais precisar usar o Express pra casos mais simples.
