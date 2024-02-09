@@ -1,8 +1,8 @@
 const http = require("http");
+const { addRoute, handleRequest } = require("./router");
 
 function myExpress() {
   const app = {};
-  const routes = [];
   const middlewares = [];
 
   app.use = (middleware) => {
@@ -10,11 +10,11 @@ function myExpress() {
   };
 
   app.get = (path, handler) => {
-    routes.push({ path, method: "GET", handler });
+    addRoute(path, "GET", handler);
   };
 
   app.post = (path, handler) => {
-    routes.push({ path, method: "POST", handler });
+    addRoute(path, "POST", handler);
   };
 
   app.listen = (port, callback) => {
@@ -27,17 +27,10 @@ function myExpress() {
           return;
         }
 
-        const route = routes.find(
-          (route) => req.url === route.path && req.method === route.method
-        );
-
-        if (route) {
-          route.handler(req, res);
-          return;
+        if (!handleRequest(req, res)) {
+          res.statusCode = 404;
+          res.end("Not Found");
         }
-
-        res.statusCode = 404;
-        res.end("Not Found");
       }
 
       next();
